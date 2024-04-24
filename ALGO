@@ -1,0 +1,20 @@
+Début
+    Entrer une phrase
+    Déclarer les variables longueur, mots et voyelles, toutes initialisées à zéro
+    
+    Pour chaque caractère dans la phrase:
+        Si le caractère est différent de ' ' et de '.':
+            Incrémenter longueur de 1
+        
+        Si le caractère est égal à ' ':
+            Incrémenter mots de 1
+        
+        Si le caractère est une voyelle (a, e, i, o, u, y) en ignorant la casse:
+            Incrémenter voyelles de 1
+    
+    Incrémenter mots de 1   // Pour compter le dernier mot après le dernier espace
+    
+    Afficher "Longueur de la phrase :", longueur
+    Afficher "Nombre de mots dans la phrase :", mots
+    Afficher "Nombre de voyelles dans la phrase :", voyelles
+Fin
