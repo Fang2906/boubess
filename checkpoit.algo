@@ -1,0 +1,192 @@
+ALGORITHM estBissextile
+VAR
+    annee: entier
+BEGIN
+    Lire annee depuis l'utilisateur
+
+    SI (annee divisible par 4) ALORS
+        SI (annee divisible par 100) ALORS
+            SI (annee divisible par 400) ALORS
+                Afficher "L'année est bissextile"
+            SINON
+                Afficher "L'année n'est pas bissextile"
+            FIN SI
+        SINON
+            Afficher "L'année est bissextile"
+        FIN SI
+    SINON
+        Afficher "L'année n'est pas bissextile"
+    FIN SI
+END
+
+
+
+//......................................................................
+
+
+
+
+
+ALGORITHM tarification_billet
+VAR
+    age, prix: entier
+BEGIN
+    Écrire "Veuillez saisir votre âge : "
+    Lire age depuis l'utilisateur
+
+    SI age <= 12 ALORS
+        prix ← 10
+    SINON SI age >= 13 ET age <= 17 ALORS
+        prix ← 15
+    SINON
+        prix ← 20
+    FIN SI
+
+    Afficher "Le prix de votre billet est de ", prix, "$."
+END
+
+
+//................................................................
+
+
+ALGORITHM weather_clothing_adviser
+VAR
+    temperature: réel
+    pluie: booléen
+BEGIN
+    Écrire "Entrez la température actuelle : "
+    Lire temperature depuis l'utilisateur
+
+    Écrire "Est-ce qu'il pleut actuellement ? (True/False) : "
+    Lire pluie depuis l'utilisateur
+
+    SI temperature < 10 ALORS
+        Afficher "Il fait froid. Vous devriez porter un manteau chaud, un chapeau et des gants."
+    SINON SI temperature >= 10 ET temperature < 20 ALORS
+        SI pluie ALORS
+            Afficher "Il fait frais et il pleut. Pensez à prendre un imperméable et un parapluie."
+        SINON
+            Afficher "Il fait frais mais il ne pleut pas. Vous pouvez porter un pull léger ou une veste."
+        FIN SI
+    SINON
+        SI pluie ALORS
+            Afficher "Il fait chaud mais il pleut. Vous pouvez porter des vêtements légers avec un imperméable."
+        SINON
+            Afficher "Il fait chaud et il ne pleut pas. Vous pouvez porter des vêtements légers comme un t-shirt et un pantalon."
+        FIN SI
+    FIN SI
+END
+
+
+//..........................................................................
+
+
+
+ALGORITHM fibonacci
+VAR
+    n: entier
+BEGIN
+    Écrire "Entrez la valeur de n : "
+    Lire n depuis l'utilisateur
+    Résultat ← fibonacci(n)
+    Afficher "Le ", n, "-ième nombre de la séquence de Fibonacci est : ", Résultat
+END
+
+ALGORITHM fibonacci
+FONCTION fibonacci(n: entier) RETOURNE entier
+DEBUT
+    SI n <= 1 ALORS
+        RETOURNER n
+    SINON
+        RETOURNER fibonacci(n-1) + fibonacci(n-2)
+    FIN SI
+FIN FONCTION
+
+
+//.......................................................................
+
+ALGORITHM palindrome_checker
+VAR
+    phrase: chaîne de caractères
+BEGIN
+    Écrire "Entrez la chaîne à vérifier : "
+    Lire phrase depuis l'utilisateur
+
+    SI est_palindrome(phrase, 0, longueur(phrase)-1) ALORS
+        Afficher "La chaîne est un palindrome."
+    SINON
+        Afficher "La chaîne n'est pas un palindrome."
+    FIN SI
+END
+
+ALGORITHM est_palindrome
+FONCTION est_palindrome(phrase: chaîne de caractères, début, fin: entiers) RETOURNE booléen
+VAR
+    caractere_debut, caractere_fin: caractère
+BEGIN
+    TANT QUE début < fin FAIRE
+        TANT QUE (phrase[début] n'est pas une lettre de l'alphabet) ET (début < fin) FAIRE
+            début ← début + 1
+        FIN TANT QUE
+        
+        TANT QUE (phrase[fin] n'est pas une lettre de l'alphabet) ET (début < fin) FAIRE
+            fin ← fin - 1
+        FIN TANT QUE
+        
+        caractere_debut ← caractère_minuscule(phrase[début])
+        caractere_fin ← caractère_minuscule(phrase[fin])
+        
+        SI caractere_debut ≠ caractere_fin ALORS
+            RETOURNER FAUX
+        FIN SI
+        
+        début ← début + 1
+        fin ← fin - 1
+    FIN TANT QUE
+    
+    RETOURNER VRAI
+FIN FONCTION
+
+ALGORITHM caractère_minuscule
+FONCTION caractère_minuscule(caractere: caractère) RETOURNE caractère
+DEBUT
+    SI caractere est une majuscule ALORS
+        RETOURNER caractere converti en minuscule
+    SINON
+        RETOURNER caractere
+    FIN SI
+FIN FONCTION
+
+
+
+//.............................................................................
+
+
+ALGORITHM puissance
+VAR
+    base, exposant: entiers
+BEGIN
+    Écrire "Entrez la base : "
+    Lire base depuis l'utilisateur
+
+    Écrire "Entrez l'exposant : "
+    Lire exposant depuis l'utilisateur
+
+    résultat ← calculer_puissance(base, exposant)
+
+    Afficher "Le résultat de ", base, " élevé à la puissance ", exposant, " est ", résultat
+END
+
+ALGORITHM calculer_puissance
+FONCTION calculer_puissance(base, exposant: entiers) RETOURNE entier
+VAR
+    résultat_temp: entier
+BEGIN
+    SI exposant = 0 ALORS
+        RETOURNER 1
+    SINON
+        résultat_temp ← calculer_puissance(base, exposant - 1)
+        RETOURNER base * résultat_temp
+    FIN SI
+FIN FONCTION
+
