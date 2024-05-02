@@ -1,0 +1,34 @@
+1. **Gymnase** :
+    - Nom (Clé primaire)
+    - Adresse
+    - Numéro de téléphone
+
+2. **Membre** :
+    - Identifiant unique (Clé primaire)
+    - Nom
+    - Prénom
+    - Adresse
+    - Date de naissance
+    - Sexe
+    - Gymnase (Clé étrangère)
+
+3. **Séance** :
+    - Identifiant unique (Clé primaire)
+    - Type de sport
+    - Horaire
+    - Gymnase (Clé étrangère)
+
+4. **Inscription** :
+    - Membre (Clé étrangère)
+    - Séance (Clé étrangère)
+
+5. **Coach** :
+    - Identifiant unique (Clé primaire)
+    - Nom
+    - Prénom
+    - Âge
+    - Spécialité
+
+6. **Animation** :
+    - Coach (Clé étrangère)
+    - Séance (Clé étrangère)
